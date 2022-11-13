@@ -140,16 +140,17 @@ names(mean\_list)\textless- c(1:10000) print(mean\_list)
 print(test) means\_list\_5 \textless- data.frame(cbind(test,
 mean\_list)) means\_list\_5
 
-\#\#store -appending five dfs
+\#\#store -appending five dfs means\_seris\textless-list(means\_list\_1,
+means\_list\_2, means\_list\_3, means\_list\_4, means\_list\_5)
+\#\#Calcualte mean by index of dataframe from the list of dataframe
 
-means\_seris \textless-rbind(means\_list\_1, means\_list\_2,
-means\_list\_3, means\_list\_4, means\_list\_5)
-mean(means\_seris\(mean_list[[1]]) mean(means_seris\)mean\_list{[}{[}2{]}{]})
-mean(means\_seris\(mean_list[[3]]) mean(means_seris\)mean\_list{[}{[}4{]}{]})
-mean(means\_seris\$mean\_list{[}{[}5{]}{]})
+mean(means\_seris{[}{[}1{]}{]}\(mean_list) mean(means_seris[[2]]\)mean\_list)
+mean(means\_seris{[}{[}3{]}{]}\(mean_list) mean(means_seris[[4]]\)mean\_list)
+mean(means\_seris{[}{[}5{]}{]}\$mean\_list)
 
-df\_means\_combined \textless-bind\_rows(means\_list\_1, means\_list\_2,
-means\_list\_3, means\_list\_4, means\_list\_5)
+\#\#Combined all dataframe df\_means\_combined
+\textless-bind\_rows(means\_list\_1, means\_list\_2, means\_list\_3,
+means\_list\_4, means\_list\_5)
 
 df\_means\_combined \%\textgreater\% group\_by(test) \%\textgreater\%
 summarise(mean = mean(mean\_list))

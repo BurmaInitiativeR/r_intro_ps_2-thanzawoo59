@@ -100,14 +100,16 @@ means_list_5
 
 
 ##store  -appending five dfs
+means_seris<-list(means_list_1, means_list_2, means_list_3, means_list_4, means_list_5)
+##Calcualte mean by index of dataframe from the list of dataframe
 
-means_seris <-rbind(means_list_1, means_list_2, means_list_3, means_list_4, means_list_5)
-mean(means_seris$mean_list[[1]])
-mean(means_seris$mean_list[[2]])
-mean(means_seris$mean_list[[3]])
-mean(means_seris$mean_list[[4]])
-mean(means_seris$mean_list[[5]])
+mean(means_seris[[1]]$mean_list)
+mean(means_seris[[2]]$mean_list)
+mean(means_seris[[3]]$mean_list)
+mean(means_seris[[4]]$mean_list)
+mean(means_seris[[5]]$mean_list)
 
+##Combined all dataframe
 df_means_combined <-bind_rows(means_list_1, means_list_2, means_list_3, means_list_4, means_list_5)
 
 
