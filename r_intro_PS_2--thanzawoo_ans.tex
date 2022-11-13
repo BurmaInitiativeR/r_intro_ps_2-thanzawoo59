@@ -88,11 +88,10 @@ mean(sample(df\$Sepal.Length,size = 10, replace=TRUE)))\\
 \# assign mean list as vector with 100 number\\
 names(mean\_list)\textless- c(1:100) print(mean\_list)
 
-\#\#test as 100 times vector test \textless- replicate(n = 100, expr =
-mean(sample(df\$Sepal.Length,size = 10,replace=TRUE)))
-names(test)\textless- c(1:100) rep(test, time=100) print(test)
-means\_list\_1 \textless- data.frame(cbind(test, mean\_list))
-means\_list\_1
+\#\#test as 100 times vector test\textless-1
+
+rep(test, time=100) print(test) means\_list\_1 \textless-
+data.frame(cbind(test, mean\_list)) means\_list\_1
 
 \#\#for means\_list\_2, using a sample size 30 and replication time 200.
 
@@ -101,10 +100,8 @@ mean(sample(df\$Sepal.Length,size = 30, replace=TRUE)))\\
 \# assign mean list as vector with 200 number\\
 names(mean\_list)\textless- c(1:200) print(mean\_list)
 
-\#\#test as 100 times vector df\textless-iris test \textless-
-replicate(n =200, expr = mean(sample(df\$Sepal.Length,size =
-30,replace=TRUE))) names(test)\textless- c(1:200) rep(test, time=200)
-print(test) means\_list\_2 \textless- data.frame(cbind(test,
+\#\#test as 100 times vector df\textless-iris test\textless-2 rep(test,
+time=200) print(test) means\_list\_2 \textless- data.frame(cbind(test,
 mean\_list)) means\_list\_2
 
 \#\#for means\_list\_3, using a sample size 50 and replication time
@@ -115,9 +112,7 @@ mean(sample(df\$Sepal.Length,size =50, replace=TRUE)))\\
 \# assign mean list as vector with 1000 number\\
 names(mean\_list)\textless- c(1:1000) print(mean\_list)
 
-\#\#test as 1000 times vector df\textless-iris test \textless-
-replicate(n =1000, expr = mean(sample(df\$Sepal.Length,size =
-50,replace=TRUE))) names(test)\textless- c(1:1000) rep(test, time=1000)
+\#\#test as 1000 times vector test\textless-3 rep(test, time=1000)
 print(test) means\_list\_3 \textless- data.frame(cbind(test,
 mean\_list)) means\_list\_3
 
@@ -129,9 +124,7 @@ mean(sample(df\$Sepal.Length,size =50, replace=TRUE)))\\
 \# assign mean list as vector with 3000 number\\
 names(mean\_list)\textless- c(1:3000) print(mean\_list)
 
-\#\#test as 3000 times vector df\textless-iris test \textless-
-replicate(n =3000, expr = mean(sample(df\$Sepal.Length,size =
-50,replace=TRUE))) names(test)\textless- c(1:3000) rep(test, time=3000)
+\#\#test as 3000 times vector test\textless-4 rep(test, time=3000)
 print(test) means\_list\_4 \textless- data.frame(cbind(test,
 mean\_list)) means\_list\_4
 
@@ -143,10 +136,8 @@ mean(sample(df\$Sepal.Length,size =50, replace=TRUE)))\\
 \# assign mean list as vector with 10000 number\\
 names(mean\_list)\textless- c(1:10000) print(mean\_list)
 
-\#\#test as 10000 times vector df\textless-iris test \textless-
-replicate(n =10000, expr = mean(sample(df\$Sepal.Length,size =
-50,replace=TRUE))) names(test)\textless- c(1:10000) rep(test,
-time=10000) print(test) means\_list\_5 \textless- data.frame(cbind(test,
+\#\#test as 10000 times vector test\textless-5 rep(test, time=10000)
+print(test) means\_list\_5 \textless- data.frame(cbind(test,
 mean\_list)) means\_list\_5
 
 \#\#store -appending five dfs
@@ -160,8 +151,8 @@ mean(means\_seris\$mean\_list{[}{[}5{]}{]})
 df\_means\_combined \textless-bind\_rows(means\_list\_1, means\_list\_2,
 means\_list\_3, means\_list\_4, means\_list\_5)
 
-library(tidyverse) df\_means\_combined \%\textgreater\% group\_by(test)
-\%\textgreater\% summarise(mean = mean(test))
+df\_means\_combined \%\textgreater\% group\_by(test) \%\textgreater\%
+summarise(mean = mean(test))
 
 \#\#\#When I clicked on knit by selecting with PDF, but produce tex
 file.

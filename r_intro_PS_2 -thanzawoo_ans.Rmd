@@ -29,8 +29,8 @@ names(mean_list)<- c(1:100)
 print(mean_list)
 
 ##test as 100 times vector
-test <- replicate(n = 100,     expr = mean(sample(df$Sepal.Length,size = 10,replace=TRUE)))
-names(test)<- c(1:100)
+test<-1
+
 rep(test, time=100)
 print(test)
 means_list_1 <- data.frame(cbind(test, mean_list))
@@ -48,8 +48,7 @@ print(mean_list)
 
 ##test as 100 times vector
 df<-iris
-test <- replicate(n =200,     expr = mean(sample(df$Sepal.Length,size = 30,replace=TRUE)))
-names(test)<- c(1:200)
+test<-2
 rep(test, time=200)
 print(test)
 means_list_2 <- data.frame(cbind(test, mean_list))
@@ -63,9 +62,7 @@ names(mean_list)<- c(1:1000)
 print(mean_list)
 
 ##test as 1000 times vector
-df<-iris
-test <- replicate(n =1000,     expr = mean(sample(df$Sepal.Length,size = 50,replace=TRUE)))
-names(test)<- c(1:1000)
+test<-3
 rep(test, time=1000)
 print(test)
 means_list_3 <- data.frame(cbind(test, mean_list))
@@ -80,9 +77,7 @@ names(mean_list)<- c(1:3000)
 print(mean_list)
 
 ##test as 3000 times vector
-df<-iris
-test <- replicate(n =3000,     expr = mean(sample(df$Sepal.Length,size = 50,replace=TRUE)))
-names(test)<- c(1:3000)
+test<-4
 rep(test, time=3000)
 print(test)
 means_list_4 <- data.frame(cbind(test, mean_list))
@@ -97,9 +92,7 @@ names(mean_list)<- c(1:10000)
 print(mean_list)
 
 ##test as 10000 times vector
-df<-iris
-test <- replicate(n =10000,     expr = mean(sample(df$Sepal.Length,size = 50,replace=TRUE)))
-names(test)<- c(1:10000)
+test<-5
 rep(test, time=10000)
 print(test)
 means_list_5 <- data.frame(cbind(test, mean_list))
