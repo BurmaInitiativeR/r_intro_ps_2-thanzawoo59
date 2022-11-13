@@ -119,7 +119,6 @@ df_means_combined <-bind_rows(means_list_1, means_list_2, means_list_3, means_li
 
 
 
-library(tidyverse)
 df_means_combined %>%
 group_by(test) %>%
 summarise(mean = mean(test))
