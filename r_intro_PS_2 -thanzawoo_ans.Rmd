@@ -2,7 +2,11 @@
 title: "r_intro PS 2_answer"
 author: "than Zaw Oo"
 date: "2022-11-13"
-output: pdf_document
+output:
+  pdf_document: default
+  html_document:
+    df_print: paged
+  word_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -13,6 +17,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 
 # Practice Summary Statistics with atomic vector 
+
 library(tidyverse)
 
 df<-iris
@@ -101,14 +106,25 @@ means_list_5 <- data.frame(cbind(test, mean_list))
 means_list_5
 
 
-##store 
-means_seris <- rbind(means_list_1, means_list_2, means_list_3, means_list_4, means_list_5)
+##store  -appending five dfs
+
+means_seris <-rbind(means_list_1, means_list_2, means_list_3, means_list_4, means_list_5)
+mean(means_seris$mean_list[[1]])
+mean(means_seris$mean_list[[2]])
+mean(means_seris$mean_list[[3]])
+mean(means_seris$mean_list[[4]])
+mean(means_seris$mean_list[[5]])
+
+df_means_combined <-bind_rows(means_list_1, means_list_2, means_list_3, means_list_4, means_list_5)
 
 
 
+library(tidyverse)
+df_means_combined %>%
+group_by(test) %>%
+summarise(mean = mean(test))
 
-
-
+###When I clicked on knit by selecting with PDF, but produce tex file.
 
 
 

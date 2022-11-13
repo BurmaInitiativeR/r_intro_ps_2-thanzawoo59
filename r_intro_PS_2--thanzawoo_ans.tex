@@ -1,0 +1,171 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={r\_intro PS 2\_answer},
+  pdfauthor={than Zaw Oo},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{r\_intro PS 2\_answer}
+\author{than Zaw Oo}
+\date{2022-11-13}
+
+\begin{document}
+\maketitle
+
+\hypertarget{practice-summary-statistics-with-atomic-vector}{%
+\section{Practice Summary Statistics with atomic
+vector}\label{practice-summary-statistics-with-atomic-vector}}
+
+library(tidyverse)
+
+df\textless-iris
+
+\hypertarget{for-means_list_1-using-a-sample-size-10-and-replication-time-100.}{%
+\subsection{for means\_list\_1, using a sample size 10 and replication
+time
+100.}\label{for-means_list_1-using-a-sample-size-10-and-replication-time-100.}}
+
+mean\_list \textless- replicate(n = 100, expr =
+mean(sample(df\$Sepal.Length,size = 10, replace=TRUE)))\\
+\# assign mean list as vector with 100 number\\
+names(mean\_list)\textless- c(1:100) print(mean\_list)
+
+\#\#test as 100 times vector test \textless- replicate(n = 100, expr =
+mean(sample(df\$Sepal.Length,size = 10,replace=TRUE)))
+names(test)\textless- c(1:100) rep(test, time=100) print(test)
+means\_list\_1 \textless- data.frame(cbind(test, mean\_list))
+means\_list\_1
+
+\#\#for means\_list\_2, using a sample size 30 and replication time 200.
+
+mean\_list \textless- replicate(n = 200, expr =
+mean(sample(df\$Sepal.Length,size = 30, replace=TRUE)))\\
+\# assign mean list as vector with 200 number\\
+names(mean\_list)\textless- c(1:200) print(mean\_list)
+
+\#\#test as 100 times vector df\textless-iris test \textless-
+replicate(n =200, expr = mean(sample(df\$Sepal.Length,size =
+30,replace=TRUE))) names(test)\textless- c(1:200) rep(test, time=200)
+print(test) means\_list\_2 \textless- data.frame(cbind(test,
+mean\_list)) means\_list\_2
+
+\#\#for means\_list\_3, using a sample size 50 and replication time
+1,000
+
+mean\_list \textless- replicate(n =1000, expr =
+mean(sample(df\$Sepal.Length,size =50, replace=TRUE)))\\
+\# assign mean list as vector with 1000 number\\
+names(mean\_list)\textless- c(1:1000) print(mean\_list)
+
+\#\#test as 1000 times vector df\textless-iris test \textless-
+replicate(n =1000, expr = mean(sample(df\$Sepal.Length,size =
+50,replace=TRUE))) names(test)\textless- c(1:1000) rep(test, time=1000)
+print(test) means\_list\_3 \textless- data.frame(cbind(test,
+mean\_list)) means\_list\_3
+
+\#\#\#for means\_list\_4, using a sample size 50 and replication time
+3,000
+
+mean\_list \textless- replicate(n =3000, expr =
+mean(sample(df\$Sepal.Length,size =50, replace=TRUE)))\\
+\# assign mean list as vector with 3000 number\\
+names(mean\_list)\textless- c(1:3000) print(mean\_list)
+
+\#\#test as 3000 times vector df\textless-iris test \textless-
+replicate(n =3000, expr = mean(sample(df\$Sepal.Length,size =
+50,replace=TRUE))) names(test)\textless- c(1:3000) rep(test, time=3000)
+print(test) means\_list\_4 \textless- data.frame(cbind(test,
+mean\_list)) means\_list\_4
+
+\#\#for means\_list\_5, using a sample size 50 and replication time
+10,000
+
+mean\_list \textless- replicate(n =10000, expr =
+mean(sample(df\$Sepal.Length,size =50, replace=TRUE)))\\
+\# assign mean list as vector with 10000 number\\
+names(mean\_list)\textless- c(1:10000) print(mean\_list)
+
+\#\#test as 10000 times vector df\textless-iris test \textless-
+replicate(n =10000, expr = mean(sample(df\$Sepal.Length,size =
+50,replace=TRUE))) names(test)\textless- c(1:10000) rep(test,
+time=10000) print(test) means\_list\_5 \textless- data.frame(cbind(test,
+mean\_list)) means\_list\_5
+
+\#\#store -appending five dfs
+
+means\_seris \textless-rbind(means\_list\_1, means\_list\_2,
+means\_list\_3, means\_list\_4, means\_list\_5)
+mean(means\_seris\(mean_list[[1]]) mean(means_seris\)mean\_list{[}{[}2{]}{]})
+mean(means\_seris\(mean_list[[3]]) mean(means_seris\)mean\_list{[}{[}4{]}{]})
+mean(means\_seris\$mean\_list{[}{[}5{]}{]})
+
+df\_means\_combined \textless-bind\_rows(means\_list\_1, means\_list\_2,
+means\_list\_3, means\_list\_4, means\_list\_5)
+
+library(tidyverse) df\_means\_combined \%\textgreater\% group\_by(test)
+\%\textgreater\% summarise(mean = mean(test))
+
+\#\#\#When I clicked on knit by selecting with PDF, but produce tex
+file.
+
+```
+
+\end{document}
