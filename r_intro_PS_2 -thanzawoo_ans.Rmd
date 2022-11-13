@@ -1,7 +1,7 @@
 ---
-title: "r_intro PS 2"
-author: "Nicholus Tint Zaw"
-date: "2022-11-10"
+title: "r_intro PS 2_answer"
+author: "than Zaw Oo"
+date: "2022-11-13"
 output: pdf_document
 ---
 
@@ -13,8 +13,112 @@ knitr::opts_chunk$set(echo = TRUE)
 
 
 # Practice Summary Statistics with atomic vector 
+library(tidyverse)
 
-First thing first, you definitely need `tidyverse` pkg for this exercise. Don't forgot to load it at the top of your answer `rmd` file. 
+df<-iris
+
+## for means_list_1, using a sample size 10 and replication time 100.
+mean_list <- replicate(n = 100, expr = mean(sample(df$Sepal.Length,size = 10, replace=TRUE)))                    
+# assign mean list as vector with 100 number                
+names(mean_list)<- c(1:100)
+print(mean_list)
+
+##test as 100 times vector
+test <- replicate(n = 100,     expr = mean(sample(df$Sepal.Length,size = 10,replace=TRUE)))
+names(test)<- c(1:100)
+rep(test, time=100)
+print(test)
+means_list_1 <- data.frame(cbind(test, mean_list))
+means_list_1
+
+
+##for means_list_2, using a sample size 30 and replication time 200.
+
+mean_list <- replicate(n = 200, expr = mean(sample(df$Sepal.Length,size = 30, replace=TRUE)))                    
+# assign mean list as vector with 200 number                
+names(mean_list)<- c(1:200)
+print(mean_list)
+
+
+
+##test as 100 times vector
+df<-iris
+test <- replicate(n =200,     expr = mean(sample(df$Sepal.Length,size = 30,replace=TRUE)))
+names(test)<- c(1:200)
+rep(test, time=200)
+print(test)
+means_list_2 <- data.frame(cbind(test, mean_list))
+means_list_2
+
+##for means_list_3, using a sample size 50 and replication time 1,000
+
+mean_list <- replicate(n =1000, expr = mean(sample(df$Sepal.Length,size =50, replace=TRUE)))                    
+# assign mean list as vector with 1000 number                
+names(mean_list)<- c(1:1000)
+print(mean_list)
+
+##test as 1000 times vector
+df<-iris
+test <- replicate(n =1000,     expr = mean(sample(df$Sepal.Length,size = 50,replace=TRUE)))
+names(test)<- c(1:1000)
+rep(test, time=1000)
+print(test)
+means_list_3 <- data.frame(cbind(test, mean_list))
+means_list_3
+
+###for means_list_4, using a sample size 50 and replication time 3,000
+
+
+mean_list <- replicate(n =3000, expr = mean(sample(df$Sepal.Length,size =50, replace=TRUE)))                    
+# assign mean list as vector with 3000 number                
+names(mean_list)<- c(1:3000)
+print(mean_list)
+
+##test as 3000 times vector
+df<-iris
+test <- replicate(n =3000,     expr = mean(sample(df$Sepal.Length,size = 50,replace=TRUE)))
+names(test)<- c(1:3000)
+rep(test, time=3000)
+print(test)
+means_list_4 <- data.frame(cbind(test, mean_list))
+means_list_4
+
+
+##for means_list_5, using a sample size 50 and replication time 10,000
+
+mean_list <- replicate(n =10000, expr = mean(sample(df$Sepal.Length,size =50, replace=TRUE)))                    
+# assign mean list as vector with 10000 number                
+names(mean_list)<- c(1:10000)
+print(mean_list)
+
+##test as 10000 times vector
+df<-iris
+test <- replicate(n =10000,     expr = mean(sample(df$Sepal.Length,size = 50,replace=TRUE)))
+names(test)<- c(1:10000)
+rep(test, time=10000)
+print(test)
+means_list_5 <- data.frame(cbind(test, mean_list))
+means_list_5
+
+
+##store 
+means_seris <- rbind(means_list_1, means_list_2, means_list_3, means_list_4, means_list_5)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 Let's go back to the previous exercise on implementation of the sampling distribution of the means. 
 
