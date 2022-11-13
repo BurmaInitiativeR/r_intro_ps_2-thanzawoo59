@@ -152,7 +152,7 @@ df\_means\_combined \textless-bind\_rows(means\_list\_1, means\_list\_2,
 means\_list\_3, means\_list\_4, means\_list\_5)
 
 df\_means\_combined \%\textgreater\% group\_by(test) \%\textgreater\%
-summarise(mean = mean(test))
+summarise(mean = mean(mean\_list))
 
 \#\#\#When I clicked on knit by selecting with PDF, but produce tex
 file.
