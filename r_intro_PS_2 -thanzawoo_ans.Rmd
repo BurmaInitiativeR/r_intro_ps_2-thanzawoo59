@@ -114,7 +114,7 @@ df_means_combined <-bind_rows(means_list_1, means_list_2, means_list_3, means_li
 
 df_means_combined %>%
 group_by(test) %>%
-summarise(mean = mean(test))
+summarise(mean = mean(mean_list))
 
 ###When I clicked on knit by selecting with PDF, but produce tex file.
 
